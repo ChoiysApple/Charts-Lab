@@ -67,7 +67,6 @@ class BarViewController: UIViewController {
             make.height.equalToSuperview().dividedBy(2)
         }
         
-//        setChartBackground()
         setChart(data: achievementRate)
     }
         
@@ -108,25 +107,6 @@ class BarViewController: UIViewController {
         // set data to barChartView
         barChartView.data = chartData
         
-    }
-    
-    func setChartBackground() {
-        // Create DataEntry with data
-        var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<7 {
-            dataEntries.append(BarChartDataEntry(x: Double(i), y: 100.0))
-        }
-
-        // Create DataSet with Index
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
-        chartDataSet.colors = [.systemGray]  //
-
-        // convert data into BarChart
-        let chartData = BarChartData(dataSet: chartDataSet)
-        chartData.barWidth = 0.5     // bar width of this data
-        chartData.setValueFormatter(HideValueFormatter())
-        
-        barChartView.data = chartData
     }
 
 

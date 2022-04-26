@@ -6,24 +6,68 @@
 //
 
 import UIKit
+import Charts
 
 class PieViewController: UIViewController {
+    
+    let category = ["work", "hobby", "study", "rest"]
+    let rate = [60.0, 80.0, 26.0, 30.0]
+    
+    let dataColors: [UIColor] = [
+        UIColor(hex: "#125B50FF")!,
+        UIColor(hex: "#F8B400FF")!,
+        UIColor(hex: "#85586FFF")!,
+        UIColor(hex: "#FF6363FF")!
+    ]
+    
+    lazy var pieChartView: PieChartView = {
+        let chart = PieChartView()
+        
+        chart.legend.enabled = false
+        chart.entryLabelFont = UIFont(name: "AvenirNext-Bold", size: 20)
+        
+        chart.animate(yAxisDuration: 2.0)
+        
+        
+        return chart
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(pieChartView)
+        
+        pieChartView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().dividedBy(2)
+        }
 
-        // Do any additional setup after loading the view.
+        setData(dataPoints: category, values: rate)
+    }
+    
+    func setData(dataPoints: [String], values: [Double]) {
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+          let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data:  dataPoints[i] as AnyObject)
+          dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Complete")
+        
+        pieChartDataSet.colors = dataColors
+        
+        
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        pieChartData.setValueFormatter(formatter)
+        
+        pieChartView.data = pieChartData
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

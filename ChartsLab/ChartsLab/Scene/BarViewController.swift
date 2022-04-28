@@ -27,6 +27,7 @@ class BarViewController: UIViewController {
         chart.doubleTapToZoomEnabled = false    // Disable tap-to-zoom
         chart.rightAxis.enabled = false         // Remove right Axis
         chart.legend.enabled = false            // Remove Legend
+        chart.highlightPerTapEnabled = false
                 
         // Bottom Axis
         chart.xAxis.labelPosition = .bottom
@@ -84,10 +85,7 @@ class BarViewController: UIViewController {
         // create Value Formatter
         let percentFormatter = NumberFormatter()
         percentFormatter.numberStyle = .percent
-        percentFormatter.maximumFractionDigits = 0
         percentFormatter.maximumIntegerDigits = 2
-        percentFormatter.minimumIntegerDigits = 0
-        percentFormatter.minimumFractionDigits = 0
         percentFormatter.multiplier = 1.0
         percentFormatter.percentSymbol = "%"
         chartDataSet.valueFormatter = PercentValueFormatter(numberFormatter: percentFormatter)

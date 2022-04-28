@@ -63,15 +63,17 @@ class PieViewController: UIViewController {
         }
         
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Complete")
-        
         pieChartDataSet.colors = dataColors
         
+        // create Value Formatter
+        let percentFormatter = NumberFormatter()
+        percentFormatter.numberStyle = .percent
+        percentFormatter.maximumIntegerDigits = 3
+        percentFormatter.multiplier = 1.0
+        percentFormatter.percentSymbol = "%"
+        pieChartDataSet.valueFormatter = PercentValueFormatter(numberFormatter: percentFormatter)
         
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        let format = NumberFormatter()
-        format.numberStyle = .none
-        let formatter = DefaultValueFormatter(formatter: format)
-        pieChartData.setValueFormatter(formatter)
         
         pieChartView.data = pieChartData
     }

@@ -17,6 +17,8 @@
 		7D92F9B32817E1FF0012A317 /* BarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F9B22817E1FF0012A317 /* BarViewController.swift */; };
 		7D92F9B52817E2140012A317 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F9B42817E2140012A317 /* Extensions.swift */; };
 		7D92F9B82817E2280012A317 /* PercentValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F9B72817E2280012A317 /* PercentValueFormatter.swift */; };
+		7DD3FFD728192B5500E565E6 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FFD628192B5500E565E6 /* ProgressViewController.swift */; };
+		7DD3FFDC28192CC700E565E6 /* RoundProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3FFDB28192CC700E565E6 /* RoundProgressBarView.swift */; };
 		895E9749691D9F7BF68CE57C /* Pods_ChartsLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F33027D9AC0929ED93E04E /* Pods_ChartsLab.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		7D92F9B22817E1FF0012A317 /* BarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarViewController.swift; sourceTree = "<group>"; };
 		7D92F9B42817E2140012A317 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7D92F9B72817E2280012A317 /* PercentValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentValueFormatter.swift; sourceTree = "<group>"; };
+		7DD3FFD628192B5500E565E6 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		7DD3FFDB28192CC700E565E6 /* RoundProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProgressBarView.swift; sourceTree = "<group>"; };
 		C34A56E8C7308FF9E49EE3EB /* Pods-ChartsLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsLab.debug.xcconfig"; path = "Target Support Files/Pods-ChartsLab/Pods-ChartsLab.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				7D92F99A2817E0980012A317 /* AppDelegate.swift */,
-				7D92F9B62817E21D0012A317 /* Helper */,
 				7D92F99C2817E0980012A317 /* SceneDelegate.swift */,
+				7D92F9B62817E21D0012A317 /* Helper */,
 				7D92F9AF2817E1C40012A317 /* Scene */,
 				7D92F9AE2817E11B0012A317 /* Base */,
 				7D92F9A32817E09A0012A317 /* Assets.xcassets */,
@@ -112,8 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				7D92F99E2817E0980012A317 /* TabBarController.swift */,
-				7D92F9B02817E1E80012A317 /* PieViewController.swift */,
 				7D92F9B22817E1FF0012A317 /* BarViewController.swift */,
+				7D92F9B02817E1E80012A317 /* PieViewController.swift */,
+				7DD3FFD628192B5500E565E6 /* ProgressViewController.swift */,
+				7DD3FFDA28192CB100E565E6 /* CustomView */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -125,6 +131,14 @@
 				7D92F9B72817E2280012A317 /* PercentValueFormatter.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		7DD3FFDA28192CB100E565E6 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				7DD3FFDB28192CC700E565E6 /* RoundProgressBarView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +259,8 @@
 				7D92F9B82817E2280012A317 /* PercentValueFormatter.swift in Sources */,
 				7D92F99F2817E0980012A317 /* TabBarController.swift in Sources */,
 				7D92F9B52817E2140012A317 /* Extensions.swift in Sources */,
+				7DD3FFD728192B5500E565E6 /* ProgressViewController.swift in Sources */,
+				7DD3FFDC28192CC700E565E6 /* RoundProgressBarView.swift in Sources */,
 				7D92F9B32817E1FF0012A317 /* BarViewController.swift in Sources */,
 				7D92F99B2817E0980012A317 /* AppDelegate.swift in Sources */,
 				7D92F99D2817E0980012A317 /* SceneDelegate.swift in Sources */,

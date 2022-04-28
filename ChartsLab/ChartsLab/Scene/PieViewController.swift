@@ -10,6 +10,7 @@ import Charts
 
 class PieViewController: UIViewController {
     
+    //MARK: Instance
     let category = ["work", "hobby", "study", "rest"]
     let rate = [60.0, 80.0, 26.0, 30.0]
     
@@ -32,6 +33,7 @@ class PieViewController: UIViewController {
         return chart
     }()
 
+    //MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +48,13 @@ class PieViewController: UIViewController {
         setData(dataPoints: category, values: rate)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        pieChartView.animate(yAxisDuration: 2.0)
+    }
+    
+    //MARK: Set Data to BarChart
     func setData(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
@@ -66,8 +75,5 @@ class PieViewController: UIViewController {
         
         pieChartView.data = pieChartData
     }
-    
-
-
 
 }

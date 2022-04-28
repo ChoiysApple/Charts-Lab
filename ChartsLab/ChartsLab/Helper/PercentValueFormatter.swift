@@ -5,24 +5,25 @@
 //  Created by Daegeon Choi on 2022/04/26.
 //
 
+import Foundation
 import Charts
 
-//class PercentValueFormatter: AxisValueFormatter {
-//
-//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-//        return String(format: "%02u", value) + "%"
-//    }
-//}
+class PercentValueFormatter: NSObject, ValueFormatter {
+    
+    fileprivate var numberFormatter: NumberFormatter?
 
-class PercentValueFormatter: ValueFormatter {
+    convenience init(numberFormatter: NumberFormatter) {
+        self.init()
+        self.numberFormatter = numberFormatter
+    }
+    
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-        return String(format: "%02u", value) + "%"
+        
+        guard let numberFormatter = numberFormatter else { return "" }
+               
+        return numberFormatter.string(for: value)!
+        
     }
 }
 
-class HideValueFormatter: ValueFormatter {
-    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-        return ""
-    }
-}
 

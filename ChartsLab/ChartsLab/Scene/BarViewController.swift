@@ -20,30 +20,22 @@ class BarViewController: UIViewController {
     
     let achievementRate = [20.0, 40.0, 60.0, 30.0, 23.0, 89.0, 50.0]
     let days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"]
-    
+        
     lazy var barChartView: BarChartView = {
         let chart = BarChartView()
         
         chart.doubleTapToZoomEnabled = false    // Disable tap-to-zoom
         chart.rightAxis.enabled = false         // Remove right Axis
         chart.legend.enabled = false            // Remove Legend
-        
-        let valFormatter = NumberFormatter()
-        valFormatter.numberStyle = .percent
-        valFormatter.maximumFractionDigits = 2
-        
+                
+        // Bottom Axis
         chart.xAxis.labelPosition = .bottom
         chart.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
         chart.xAxis.removeAllLimitLines()
         chart.xAxis.drawAxisLineEnabled = false
         
+        // Left Axiz
         chart.leftAxis.enabled = false
-//        chart.leftAxis.axisMaximum = 100.0
-//        chart.leftAxis.axisMinimum = 0.0
-//        chart.leftAxis.removeAllLimitLines()
-//        chart.leftAxis.drawAxisLineEnabled = false
-        
-        
         
         // Animation
         chart.animate(yAxisDuration: 2.0)
@@ -69,6 +61,12 @@ class BarViewController: UIViewController {
         
         setChart(data: achievementRate)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        barChartView.animate(yAxisDuration: 2.0)
+    }
         
     func setChart(data: [Double]) {
         print(#function)
@@ -81,28 +79,22 @@ class BarViewController: UIViewController {
 
         // Create DataSet with Index
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Achivement")
-        chartDataSet.colors = [UIColor(hex: "#6563BEFF")!]  // bar color of this data
-
+        chartDataSet.colors = [UIColor(hex: "#6563BEFF")!]  // bar color of this date
+        
+        // create Value Formatter
+        let percentFormatter = NumberFormatter()
+        percentFormatter.numberStyle = .percent
+        percentFormatter.maximumFractionDigits = 0
+        percentFormatter.maximumIntegerDigits = 2
+        percentFormatter.minimumIntegerDigits = 0
+        percentFormatter.minimumFractionDigits = 0
+        percentFormatter.multiplier = 1.0
+        percentFormatter.percentSymbol = "%"
+        chartDataSet.valueFormatter = PercentValueFormatter(numberFormatter: percentFormatter)
+                
         // convert data into BarChart
         let chartData = BarChartData(dataSet: chartDataSet)
-        chartData.barWidth = 0.5     // bar width of this data
-        
-//        let valFormatter = NumberFormatter()
-//        valFormatter.numberStyle = .percent
-//        valFormatter.maximumFractionDigits = 0
-//        valFormatter.maximumIntegerDigits = 2
-//        valFormatter.minimumIntegerDigits = 0
-//        valFormatter.minimumFractionDigits = 0
-//        valFormatter.percentSymbol = "%"
-//
-//        let format = NumberFormatter()
-//        format.numberStyle = .percent
-                
-        chartData.setValueFormatter(PercentValueFormatter())
-        
-        
-//        chartData.setValueFormatter(PercentValueFormatter())
-        
+        chartData.barWidth = 0.5    // bar width = default * 0.5
     
         // set data to barChartView
         barChartView.data = chartData

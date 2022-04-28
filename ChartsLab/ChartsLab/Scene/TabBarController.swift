@@ -25,13 +25,14 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let PieItem = PieViewController()
         PieItem.tabBarItem = UITabBarItem(title: "Pie Chart", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(systemName: "chart.pie.fill"))
         
+        let ProgressItem = ProgressViewController()
+        ProgressItem.tabBarItem = UITabBarItem(title: "Progress Bar", image: UIImage(systemName: "goforward"), selectedImage: UIImage(systemName: "goforward"))
 
-        self.viewControllers = [BarItem, PieItem]
+        self.viewControllers = [BarItem, PieItem, ProgressItem]
     }
 
     //Delegate methods
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title ?? "") ?")
         return true
     }
     

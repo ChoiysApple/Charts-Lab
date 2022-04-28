@@ -27,7 +27,7 @@ class BarViewController: UIViewController {
         chart.doubleTapToZoomEnabled = false    // Disable tap-to-zoom
         chart.rightAxis.enabled = false         // Remove right Axis
         chart.legend.enabled = false            // Remove Legend
-        chart.highlightPerTapEnabled = false
+        chart.highlightPerTapEnabled = true     // Enable Tap
                 
         // Bottom Axis
         chart.xAxis.labelPosition = .bottom
@@ -100,4 +100,12 @@ class BarViewController: UIViewController {
     }
 
 
+}
+
+extension BarViewController: ChartViewDelegate {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+        print("From: \(chartView)")
+        print("Entry: \(entry)")
+        print("Highlight: \(highlight)")
+    }
 }

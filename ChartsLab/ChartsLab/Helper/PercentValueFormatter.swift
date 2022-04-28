@@ -8,7 +8,7 @@
 import Foundation
 import Charts
 
-class PercentValueFormatter: NSObject, ValueFormatter {
+class PercentValueFormatter: NSObject, IValueFormatter {
     
     fileprivate var numberFormatter: NumberFormatter?
 

@@ -7,7 +7,7 @@ target 'ChartsLab' do
 
   # Pods for ChartsLab
 
-pod 'Charts'
+pod 'Charts', '3.5.0'
 pod 'SnapKit'
 pod 'Then'
 

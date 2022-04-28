@@ -6,47 +6,56 @@
 import UIKit
 
 class RoundProgressBarView: UIView {
-    
-    enum RoundProgressBarType {
-        case Full
-        case Semi
         
-        var startPoint: CGFloat {
-            switch self {
-            case .Full: return CGFloat(-Double.pi / 2)
-            case .Semi: return CGFloat(-Double.pi)
-            }
-        }
+    lazy var progressLabel = UILabel().then {
+        $0.textColor = .black
+        $0.font =  UIFont(name: "AvenirNext-medium", size: 30)
     }
+
     
     // CAShapeLayer: draws a cubic Bezier spline in its coordinate
     private var circleLayer = CAShapeLayer()        // Create Empty Circle
     private var progressLayer = CAShapeLayer()      // Fills Circle Layer
     
-    // 0 degree == xAxis
-    private var startPoint = CGFloat(-Double.pi / 2)    // - 90 degree
-    private var endPoint = CGFloat(3 * Double.pi / 2)   // + 270 degree
-
+    // Default values
+    public var progress: Double = 0
+    public var type: RoundProgressBarType = .Full
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.createCircularPath()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    init(progress: Double, type: RoundProgressBarType) {
+        super.init(frame: .zero)
+        
+        self.progress = progress
+        self.type = type
+        
+        self.createCircularPath()
+        
+        self.addSubview(progressLabel)
+        progressLabel.text = "\(String(format: "%.0f%", progress))%"
+        progressLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
     func createCircularPath() {
         
-        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 80, startAngle: startPoint, endAngle: endPoint, clockwise: true)
-        circleLayer.path = circularPath.cgPath          // Draw circle
+        let fullPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 80, startAngle: type.startPoint, endAngle: type.endPoint, clockwise: true)
+        circleLayer.path = fullPath.cgPath          // Draw circle
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineCap = .round
-        circleLayer.lineWidth = 20.0
+        circleLayer.lineWidth = 10.0
         circleLayer.strokeEnd = 1.0
-        circleLayer.strokeColor = UIColor.black.cgColor
+        circleLayer.strokeColor = UIColor.lightGray.cgColor
         layer.addSublayer(circleLayer)                  // Add Layer
         
+        let circularPath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: 80, startAngle: type.startPoint, endAngle: getEndPoint(percent: progress, type: type), clockwise: true)
         progressLayer.path = circularPath.cgPath        // Draw same circle
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = .round
@@ -57,7 +66,13 @@ class RoundProgressBarView: UIView {
     }
     
     func getEndPoint(percent: Double, type: RoundProgressBarType) -> CGFloat {
-        return CGFloat(2 * Double.pi * percent) + type.startPoint
+        
+        switch type {
+        case .Full:
+            return CGFloat(2 * Double.pi * percent/100) + type.startPoint
+        case .Semi:
+            return CGFloat(Double.pi * percent/100) + type.startPoint
+        }
     }
     
     func progressAnimation(duration: TimeInterval) {

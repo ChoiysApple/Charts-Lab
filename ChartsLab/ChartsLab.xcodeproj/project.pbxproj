@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D376973281A5013005D7CB8 /* RoundProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D376972281A5013005D7CB8 /* RoundProgressBarType.swift */; };
 		7D92F99B2817E0980012A317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F99A2817E0980012A317 /* AppDelegate.swift */; };
 		7D92F99D2817E0980012A317 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F99C2817E0980012A317 /* SceneDelegate.swift */; };
 		7D92F99F2817E0980012A317 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F99E2817E0980012A317 /* TabBarController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		00F33027D9AC0929ED93E04E /* Pods_ChartsLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6646BE2154BD70795145F1D3 /* Pods-ChartsLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsLab.release.xcconfig"; path = "Target Support Files/Pods-ChartsLab/Pods-ChartsLab.release.xcconfig"; sourceTree = "<group>"; };
+		7D376972281A5013005D7CB8 /* RoundProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProgressBarType.swift; sourceTree = "<group>"; };
 		7D92F9972817E0980012A317 /* ChartsLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartsLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D92F99A2817E0980012A317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D92F99C2817E0980012A317 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				7DD3FFDB28192CC700E565E6 /* RoundProgressBarView.swift */,
+				7D376972281A5013005D7CB8 /* RoundProgressBarType.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D92F9B82817E2280012A317 /* PercentValueFormatter.swift in Sources */,
+				7D376973281A5013005D7CB8 /* RoundProgressBarType.swift in Sources */,
 				7D92F99F2817E0980012A317 /* TabBarController.swift in Sources */,
 				7D92F9B52817E2140012A317 /* Extensions.swift in Sources */,
 				7DD3FFD728192B5500E565E6 /* ProgressViewController.swift in Sources */,

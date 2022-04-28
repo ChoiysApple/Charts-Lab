@@ -9,30 +9,34 @@ import UIKit
 
 class ProgressViewController: UIViewController {
     
-    lazy var progressBarView = RoundProgressBarView()
+    lazy var fullProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .Full)
+    lazy var semiProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .Semi)
     
-    lazy var progressLabel = UILabel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(progressBarView)
-        view.addSubview(progressLabel)
-        
-        progressBarView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+        view.addSubview(fullProgressView)
+        fullProgressView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().dividedBy(2)
         }
         
-        progressLabel.snp.makeConstraints { make in
-            make.center.equalTo(progressBarView.center)
+        view.addSubview(semiProgressView)
+        semiProgressView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().dividedBy(0.75)
         }
-        progressLabel.text = "100%"
-        
+
     }
     
+
+    
     override func viewDidAppear(_ animated: Bool) {
-        progressBarView.progressAnimation(duration: 2.0)
+        
+        fullProgressView.progressAnimation(duration: 1.5)
+        semiProgressView.progressAnimation(duration: 1.5)
     }
+    
     
 
 }

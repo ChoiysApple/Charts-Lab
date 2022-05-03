@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D115529282113D5007FD438 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7D115528282113D5007FD438 /* .swiftlint.yml */; };
 		7D376973281A5013005D7CB8 /* RoundProgressBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D376972281A5013005D7CB8 /* RoundProgressBarType.swift */; };
 		7D4219AC281A5D9800C6D57F /* BarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4219AB281A5D9800C6D57F /* BarMarkerView.swift */; };
 		7D92F99B2817E0980012A317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D92F99A2817E0980012A317 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		00F33027D9AC0929ED93E04E /* Pods_ChartsLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6646BE2154BD70795145F1D3 /* Pods-ChartsLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsLab.release.xcconfig"; path = "Target Support Files/Pods-ChartsLab/Pods-ChartsLab.release.xcconfig"; sourceTree = "<group>"; };
+		7D115528282113D5007FD438 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		7D376972281A5013005D7CB8 /* RoundProgressBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundProgressBarType.swift; sourceTree = "<group>"; };
 		7D4219AB281A5D9800C6D57F /* BarMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarMarkerView.swift; sourceTree = "<group>"; };
 		7D92F9972817E0980012A317 /* ChartsLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartsLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 		7D92F98E2817E0980012A317 = {
 			isa = PBXGroup;
 			children = (
+				7D115528282113D5007FD438 /* .swiftlint.yml */,
 				7D92F9992817E0980012A317 /* ChartsLab */,
 				7D92F9982817E0980012A317 /* Products */,
 				4EF27A5CB73FC46AEB08413F /* Pods */,
@@ -159,6 +162,7 @@
 				7D92F9942817E0980012A317 /* Frameworks */,
 				7D92F9952817E0980012A317 /* Resources */,
 				EAF57C2CCD06E0C58F81123E /* [CP] Embed Pods Frameworks */,
+				7D115527282110E2007FD438 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D115529282113D5007FD438 /* .swiftlint.yml in Resources */,
 				7D92F9A72817E09A0012A317 /* LaunchScreen.storyboard in Resources */,
 				7D92F9A42817E09A0012A317 /* Assets.xcassets in Resources */,
 				7D92F9A22817E0980012A317 /* Main.storyboard in Resources */,
@@ -237,6 +242,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7D115527282110E2007FD438 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 		EAF57C2CCD06E0C58F81123E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

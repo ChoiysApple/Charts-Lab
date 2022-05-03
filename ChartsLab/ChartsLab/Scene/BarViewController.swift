@@ -48,7 +48,6 @@ class BarViewController: UIViewController {
         return chart
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,7 +97,6 @@ class BarViewController: UIViewController {
         barChartView.data = chartData
         
     }
-
 
 }
 

@@ -396,7 +396,14 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 }
                 
                 context.setFillColor(dataSet.barShadowColor.cgColor)
-                context.fill(barRect)
+                
+                //MARK: Edited
+                let bezierPath = UIBezierPath(roundedRect: barRect, cornerRadius: 20.0)
+                context.addPath(bezierPath.cgPath)
+                context.drawPath(using: .fill)
+                
+                //MARK: Legacy
+                // context.fill(barRect)
             }
         }
         

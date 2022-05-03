@@ -10,7 +10,7 @@ import Charts
 
 class PieViewController: UIViewController {
     
-    //MARK: Instance
+    // MARK: Instance
     let category = ["work", "hobby", "study", "rest"]
     let rate = [60.0, 80.0, 26.0, 30.0]
     
@@ -28,12 +28,11 @@ class PieViewController: UIViewController {
         chart.entryLabelFont = UIFont(name: "AvenirNext-Bold", size: 20)
         
         chart.animate(yAxisDuration: 2.0)
-        
-        
+         
         return chart
     }()
 
-    //MARK: ViewDidLoad
+    // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,11 +53,11 @@ class PieViewController: UIViewController {
         pieChartView.animate(yAxisDuration: 2.0)
     }
     
-    //MARK: Set Data to BarChart
+    // MARK: Set Data to BarChart
     func setData(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
-          let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data:  dataPoints[i] as AnyObject)
+          let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data: dataPoints[i] as AnyObject)
           dataEntries.append(dataEntry)
         }
         

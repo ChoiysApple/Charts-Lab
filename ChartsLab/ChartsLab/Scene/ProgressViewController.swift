@@ -9,8 +9,8 @@ import UIKit
 
 class ProgressViewController: UIViewController {
     
-    lazy var fullProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .Full)
-    lazy var semiProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .Semi)
+    lazy var fullProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .full)
+    lazy var semiProgressView = RoundProgressBarView(progress: Double.random(in: 0...100), type: .semi)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +29,10 @@ class ProgressViewController: UIViewController {
 
     }
     
-
-    
     override func viewDidAppear(_ animated: Bool) {
         
         fullProgressView.progressAnimation(duration: 1.5)
         semiProgressView.progressAnimation(duration: 1.5)
     }
     
-    
-
 }

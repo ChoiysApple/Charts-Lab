@@ -10,5 +10,6 @@ target 'ChartsLab' do
 pod 'Charts', '3.5.0'
 pod 'SnapKit'
 pod 'Then'
+pod 'SwiftLint'
 
 end

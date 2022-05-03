@@ -3,7 +3,7 @@
 //  ChartsLab
 //
 //  Created by Daegeon Choi on 2022/04/28.
-//
+//https://medium.com/geekculture/swift-ios-charts-tutorial-highlight-selected-value-with-a-custom-marker-30ccbf92aa1b
 
 import Charts
 class BarMarkerView: MarkerView {
@@ -16,7 +16,6 @@ class BarMarkerView: MarkerView {
         $0.font = UIFont(name: "AvenirNext", size: UIFont.labelFontSize)
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
@@ -27,8 +26,6 @@ class BarMarkerView: MarkerView {
     }
     
     private func initUI() {
-        
-        
         
     }
 

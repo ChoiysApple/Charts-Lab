@@ -9,21 +9,20 @@ import Foundation
 import UIKit
 
 enum RoundProgressBarType {
-    case Full
-    case Semi
+    case full
+    case semi
     
     var startPoint: CGFloat {
         switch self {
-        case .Full: return CGFloat(-Double.pi / 2)
-        case .Semi: return CGFloat(-Double.pi)
+        case .full: return CGFloat(-Double.pi / 2)
+        case .semi: return CGFloat(-Double.pi)
         }
     }
     
     var endPoint: CGFloat {
         switch self {
-        case .Full: return CGFloat(3 * Double.pi / 2)
-        case .Semi: return CGFloat(0)
+        case .full: return CGFloat(3 * Double.pi / 2)
+        case .semi: return CGFloat(0)
         }
     }
 }
-
